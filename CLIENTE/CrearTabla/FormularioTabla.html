@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tabla por parámetros</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript" src="js/crearTabla.js"></script>
+
+</head>
+
+<body>
+    <div class="row mt-3">
+
+        <div class="col" id="resultado">
+        </div>
+
+        <div class="col bg-danger text-light">
+            <p class="display-1 text-center">Tabla por parámetros</p>
+            <form>
+                <div class="mb-3 mt-3">
+                    <label class="form-label" for="filas">Filas</label>
+                    <input class="form-control" type="number" name="filas" id="filas" value="5"><br />
+                </div>
+                <div class="mb-3 mt-3">
+                    <label class="form-label" for="columnas">Columnas</label>
+                    <input class="form-control" type="number" name="columnas" id="columnas" value="3"><br />
+                </div>
+                <div class="mb-3 mt-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="conBorde" name="borde">
+                    <label class="form-label" for="borde">Borde</label>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label class="form-label" for="color">Color</label>
+                    <input class="form-control" type="color" name="color" id="color" value="#FF0000"><br />
+                </div>
+                <div class="mb-3 mt-3">
+                    <button type="button" onclick="creaTabla()" class="btn btn-light">Crear</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col">
+        </div>
+
+    </div>
+</body>
+
+</html>
