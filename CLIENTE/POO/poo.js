@@ -1,12 +1,29 @@
-const persona = {
-	nombre: "Federico",
-	apellidos: "Garcia Lorca",
-	edad:55,
-	nacionalidad:"española",
-	datosCompletos: function () {
-		alert(this.nombre + " - "+ this.apellidos + " - "+ this.edad);
+function Persona(nom,apell,ed,nac) {
+	this.nombre = nom;
+	this.apellidos = apell;
+	this.edad = ed;
+	this.nacionalidad = nac;
+	this.dimeLaEdad = function(){
+		return "Mi edad es " + this.edad;
 	}
 }
+
+const persona = new Persona("Federico","Garcia Lorca",55,"Española");
+
+
+persona.verDatos = function(){
+	return this.nombre + " " + this.apellidos;
+}
+
+function verEdad(){
+	document.getElementById('salida').innerHTML = persona.dimeLaEdad();
+}
+
+function verPersona(){
+
+	document.getElementById('salida').innerHTML = persona.verDatos();
+}
+/*
 
 //alert(persona.nombre);
 
@@ -56,4 +73,4 @@ const person = {
 };
 
 let myString = JSON.stringify(person);
-document.getElementById("parrafo").innerHTML = myString;
+document.getElementById("parrafo").innerHTML = myString; */

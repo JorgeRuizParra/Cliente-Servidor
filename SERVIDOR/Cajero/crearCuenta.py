@@ -13,7 +13,7 @@ parametros = urlparse(ru)
 param = parse_qs(parametros[4])
 
 numero_de_cuenta = random.randint(100000, 999999)
-cuenta = [numero_de_cuenta,0]
+cuenta = [numero_de_cuenta,0,[]]
 
 if os.path.getsize("datos/Cuentas.json") == 0:
     listaCuentas = [cuenta]
