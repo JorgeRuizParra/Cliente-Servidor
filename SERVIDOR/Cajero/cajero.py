@@ -32,14 +32,12 @@ fich.close()
 #funcion que crea una lista ordenada con los productos
 def listaCuentas():
     if len(cuentas) != 0:#si hay productos se crea la lista
-        print("<form action='historial.py'>")
         print("<ol>")
         for p in cuentas:
-            print(f"<li>Numero de cuenta:{p[0]}, Saldo:{p[1]} <button type='submit'>Consultar</button><input type='hidden' name='numeroCuenta' id='numeroCuenta' value='{p[0]}'></li>")
+            print(f"<li>Numero de cuenta:{p[0]}, Saldo:{p[1]} <form action='historial.py'><input type='hidden' name='saldo' id='saldo' value='{p[1]}'><input type='hidden' name='numeroCuenta' id='numeroCuenta' value='{p[0]}'><button type='submit'>Consultar</button></form></li>")
         print("</ol>")
     else: #si la lista no tiene productos
         print("<h3>No hay cuentas</h3>")
-    print("<form/>")
     print("<hr />")
 
 
@@ -48,6 +46,8 @@ codigoHtml.cabeceraHtml()
 listaCuentas()
 codigoHtml.crearCuenta()
 print("<hr />")
+
 codigoHtml.operar()
+print("<br />")
 
 codigoHtml.finHtml()
