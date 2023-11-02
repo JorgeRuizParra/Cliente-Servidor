@@ -9,37 +9,33 @@ print("Content-type: text/html\n")
 
 fileitem = form['filename']
 
-
-
-def crearTabla(fn):
-    with open(fn, 'r') as file:
+def crearLista(fn):
+     with open(fn, 'r') as file:
         lineas = file.readlines()
 
-        tabla = "<table border='1' style='border: 1px solid black; border-collapse:collapse;'"
+        lista = "<ol>\n"
 
-        header = lineas[0].strip().split(";")
-        tabla += " <tr>\n"
-        for col in header:
-            tabla += f"<th>{col}</th>"
-        tabla += " </tr>\n"
+        contenido = lineas[0].split(",")
+        lista += f"<li>{contenido[0]}\n"
 
-        for linea in lineas[1:]:
-            datos = linea.split(";")
-            tabla += " <tr>\n"
-            for col in datos:
-                tabla += f"<td>{col}</td>"
-            tabla += " </tr>\n"
+    
+        lista +="<ol>"
         
-        tabla += "</table>"
+        for li in contenido[1:]:
+            lista +=f"      <li>{li}</li>\n"
+    
+        lista += "</ol>"
+        lista += "</li>"
+        lista += "</ol>"
 
-        return tabla
-        
+        return lista
+
 if fileitem.filename:
     fn = os.path.basename(fileitem.filename)
 
     open("img/"+fn, 'wb').write(fileitem.file.read())
 
-    tabla_html = crearTabla("img/"+fn)
+    lista_html = crearLista("img/"+fn)
 
-    print(tabla_html)
+    print(lista_html)
 
