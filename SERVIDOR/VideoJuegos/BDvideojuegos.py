@@ -85,6 +85,63 @@ class BDVideoJuegos:
 
         micursor.close()
 
+    def insertar(self, nombre, empresa, tematica, nJug, anio):
+        #crear un cursor para hacer la consulta
+        micursor = self.bdconx.cursor()
+
+
+        #crear el texto de la consulta
+        consulta = "INSERT INTO videojuegosantiguos (nombre, empresa, tematica, numero_de_jugadores, publicacion) VALUES (%s, %s, %s, %s, %s)"
+        val = (nombre, empresa, tematica, nJug, anio)
+
+        #ejecutar la consulta
+        micursor.execute(consulta,val)
+
+        self.bdconx.commit()
+
+        #cerrar cursor y conexion
+        micursor.close()
+
+    def seleccionarPorId(self,id):
+         #crear un cursor para hacer la consulta
+        micursor = self.bdconx.cursor()
+
+
+        #crear el texto de la consulta
+        consulta = "SELECT * FROM videojuegosantiguos WHERE id = "+id
+        sys.stderr.write("=================="+consulta+"=====================")
+
+        #ejecutar la consulta
+        micursor.execute(consulta)
+
+
+        #obtener las filas de la consulta y guardar en la variable
+        miresultado = micursor.fetchone()
+
+        #cerrar cursor y conexion
+        micursor.close()
+
+
+        #devolver los datos
+        return miresultado
+
+    def modificar(self, id, nombre, empresa, tematica, nJug, anio):
+        #crear un cursor para hacer la consulta
+        micursor = self.bdconx.cursor()
+
+
+        #crear el texto de la consulta
+        consulta = "UPDATE videojuegosantiguos SET nombre = %s,empresa = %s,tematica = %s,numero_de_jugadores = %s,publicacion = %s  WHERE id = %s"
+        val = (nombre, empresa, tematica, nJug, anio, id)
+
+        #ejecutar la consulta
+        micursor.execute(consulta,val)
+
+        self.bdconx.commit()
+
+        #cerrar cursor y conexion
+        micursor.close()
+
     
     def cerrarBD(self):
         self.bdconx.close()
