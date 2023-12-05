@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <style>
+        .carta{
+            width: 150px;
+            height: 150px;
+            margin: 30px;
+            border-radius: 20px;
+            box-shadow: 9px 10px 10px 0;
+            background-image: url(imagenes/interrogacion.png);
+            background-size: 100px;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+        .cartapulsada{
+            width: 150px;
+            height: 150px;
+            margin: 30px;
+            border-radius: 20px;
+            box-shadow: 9px 10px 10px 0;
+            background-image: none;
+        }
+
+        .carta1pulsada{
+            background-image: none;
+            animation-name: balon;
+            animation-duration: 4s;
+            animation-fill-mode: forwards;
+        }
+
+        .carta2pulsada{
+            background-image: none;
+            animation-name: libro;
+            animation-duration: 4s;
+            animation-fill-mode: forwards;
+        }
+
+        .carta3pulsada{
+            background-image: none;
+            animation-name: lapiz;
+            animation-duration: 4s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes balon{
+            0%{ 
+                opacity: 0%;
+                background-position: center center;
+            }
+            50%{
+                background-image: url(imagenes/balon.png);
+                background-size: 100px;
+                background-repeat: no-repeat;
+                background-position: center center;
+                opacity: 100%;
+            }
+            100%{
+                background-image: url(imagenes/interrogacion.png);
+                background-size: 100px;
+                background-repeat: no-repeat;
+                background-position: center center;
+                opacity: 100%;
+            }
+        }
+        @keyframes libro{
+            0%{ 
+                opacity: 0%;
+                background-position: center center;
+            }
+            50%{
+                background-image: url(imagenes/libro.png);
+                background-size: 100px;
+                background-repeat: no-repeat;
+                background-position: center center;
+                opacity: 100%;
+            }
+            100%{
+                background-image: url(imagenes/interrogacion.png);
+                background-size: 100px;
+                background-repeat: no-repeat;
+                background-position: center center;
+                opacity: 100%;
+            }
+        }
+        
+        @keyframes lapiz{
+            0%{ 
+                opacity: 0%;
+                background-position: center center;
+            }
+            50%{
+                background-image: url(imagenes/lapiz.png);
+                background-size: 100px;
+                background-repeat: no-repeat;
+                background-position: center center;
+                opacity: 100%;
+            }
+            100%{
+                background-image: url(imagenes/interrogacion.png);
+                background-size: 100px;
+                background-repeat: no-repeat;
+                background-position: center center;
+                opacity: 100%;
+            }
+        }
+
+        #tablero{
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="tablero">
+        <h1>Memory Game</h1>
+    </div>
+	<script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+	<script type="text/javascript" src="js/mem.js"></script>
+</body>
+</html>
