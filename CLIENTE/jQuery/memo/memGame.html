@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Memoria</title>
+    <style>
+        html {
+            background: linear-gradient(#013f04, #50c06c);
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+        }
+
+        #titulo {
+            color: white;
+            font-size: 35px;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 50px;
+            font-weight: bold;
+        }
+
+        #tablero {
+            display: grid;
+            grid-template-columns: repeat(5, 170px);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .tarjeta {
+            width: 170px;
+            height: 200px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            user-select: none;
+            border-radius: 15px;
+            transition: background-color 0.3s ease;
+            overflow: hidden;
+        }
+
+        .tarjeta img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .tarjeta.visible {
+            background-color: #aaffaa;
+        }
+
+        #salida {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        #reiniciar {
+            padding: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #006405;
+            border-radius: 10px;
+            color: white;
+            border: none;
+            margin-bottom: 200px;
+            outline: none;
+        }
+
+        #reiniciar:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<div id="titulo">Memory Game</div>
+<div id="tablero"></div>
+<div id="salida"></div>
+<button id="reiniciar">Reiniciar Partida</button>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        inicio();
+
+        $('#reiniciar').on('click', function () {
+            reiniciar();
+        });
+
+        let tarjetasAbiertas = [];
+        let parejasEncontradas = 0;
+
+        function inicio() {
+            const imagenes = ['imagenes/palmeiras.png', 'imagenes/cska.png', 'imagenes/sunderland.png', 'imagenes/venezia.png', 'imagenes/burgos.png'];
+            const tarjetas = imagenes.concat(imagenes);
+            tarjetas.sort(() => Math.random() - 0.5);
+
+            const tablero = $('#tablero');
+            tarjetas.forEach(function (imagen, index) {
+                const tarjeta = $('<div>').addClass('tarjeta').attr('data-imagen', imagen);
+                const img = $('<img>').attr('src', 'imagenes/interrogacion.png');
+                tarjeta.append(img);
+                tablero.append(tarjeta);
+            });
+
+            $('.tarjeta').on('click', function () {
+                $('#salida').text('');
+                const tarjeta = $(this);
+
+                if (!tarjeta.hasClass('visible') && tarjetasAbiertas.length < 2) {
+                    tarjeta.addClass('visible').find('img').attr('src', tarjeta.data('imagen'));
+                    tarjetasAbiertas.push(tarjeta);
+
+                    if (tarjetasAbiertas.length === 2) {
+                        setTimeout(verificarPareja, 1000);
+                    }
+                }
+            });
+
+            function verificarPareja() {
+                const imagen1 = tarjetasAbiertas[0].data('imagen');
+                const imagen2 = tarjetasAbiertas[1].data('imagen');
+
+                if (imagen1 === imagen2) {
+                    $('#salida').text('¡Has encontrado una pareja!');
+                    parejasEncontradas++;
+
+                    if (parejasEncontradas === imagenes.length) {
+                        $('#salida').text('¡Has encontrado todas las parejas!');
+                    }
+                } else {
+                    tarjetasAbiertas.forEach(function (tarjeta) {
+                        tarjeta.removeClass('visible').find('img').attr('src', 'imagenes/interrogacion.png');
+                    });
+                }
+
+                tarjetasAbiertas = [];
+            }
+        }
+
+        function reiniciar() {
+            $('#tablero').empty();
+            $('#salida').text('');
+            inicio();
+        }
+    });
+</script>
+
+</body>
+</html>

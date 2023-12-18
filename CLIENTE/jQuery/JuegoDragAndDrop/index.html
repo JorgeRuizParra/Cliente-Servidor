@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Drag And Drop</title>
+    <link rel="stylesheet" href="misestilos.css">
+    
+</head>
+<body>
+<div id="juego1">
+    <h1 class="Nivel">Nivel: Fácil</h1>
+    <button class="reiniciar">Reiniciar</button>
+    <div id="contenedorImagenes">
+        <table>
+            <tr>
+                <td><img id="draggable-4" class="imagen" draggable="true" ondragstart="arrastrando(event)" src="imagenes/supra.png"></td>
+                <td><img id="draggable-2" class="imagen" draggable="true" ondragstart="arrastrando(event)" src="imagenes/lancer.png"></td>
+                <td><img id="draggable-1" class="imagen" draggable="true" ondragstart="arrastrando(event)" src="imagenes/r34.png"></td>
+                <td><img id="draggable-3" class="imagen" draggable="true" ondragstart="arrastrando(event)" src="imagenes/911.png"></td>
+            </tr>
+        </table>
+    </div>
+    <div id="contenedorTexto">
+        <table>
+            <tr>
+            <td><div class="dropzone" id="destino1" ondragover="recibiendo(event)" ondrop="soltar(event)">Skyline R34</div></td>
+            <td><div class="dropzone" id="destino2" ondragover="recibiendo(event)" ondrop="soltar(event)">Lancer Evo</div></td>
+            <td><div class="dropzone" id="destino3" ondragover="recibiendo(event)" ondrop="soltar(event)">911</div></td>
+            <td><div class="dropzone" id="destino4" ondragover="recibiendo(event)" ondrop="soltar(event)">Supra</div></td>
+            </tr>
+        </table>
+    </div>
+    <button class="btns" id="boton">Comprobar</button>
+    <button id="btnNvl"><a>Siguiente Nivel</a></button>
+</div>
+<div id="juego2">
+    <h1 class="Nivel">Nivel: Medio</h1>
+    <button class="reiniciar">Reiniciar</button>
+    <div id="contenedorImagenes">
+        <table>
+            <tr>
+                <td><img id="draggable-6" class="imagen2" draggable="true" ondragstart="arrastrando(event)" src="imagenes/rx7.png"></td>
+                <td><img id="draggable-8" class="imagen2" draggable="true" ondragstart="arrastrando(event)" src="imagenes/Silvia.png"></td>
+                <td><img id="draggable-7" class="imagen2" draggable="true" ondragstart="arrastrando(event)" src="imagenes/Trueno GT.png"></td>
+                <td><img id="draggable-5" class="imagen2" draggable="true" ondragstart="arrastrando(event)" src="imagenes/Yaris.png"></td>
+            </tr>
+        </table>
+    </div>
+    <div id="contenedorTexto">
+        <table>
+            <tr>
+            <td><div class="dropzone" id="destino5" ondragover="recibiendo(event)" ondrop="soltar(event)">Yaris</div></td>
+            <td><div class="dropzone" id="destino6" ondragover="recibiendo(event)" ondrop="soltar(event)">Rx7</div></td>
+            <td><div class="dropzone" id="destino7" ondragover="recibiendo(event)" ondrop="soltar(event)">Trueno GT</div></td>
+            <td><div class="dropzone" id="destino8" ondragover="recibiendo(event)" ondrop="soltar(event)">Silvia</div></td>
+            </tr>
+        </table>
+    </div>
+    <button class="btns" id="boton2">Comprobar</button>
+    <button id="btnNvl2">Siguiente Nivel</button>
+</div>
+<div id="juego3">
+    <h1 class="Nivel">Nivel: Difícil</h1>
+    <button class="reiniciar">Reiniciar</button>
+    <div id="contenedorImagenes">
+        <table>
+            <tr>
+                <td><img id="draggable-9" class="imagen3" draggable="true" ondragstart="arrastrando(event)" src="imagenes/3000GT.png"></td>
+                <td><img id="draggable-11" class="imagen3" draggable="true" ondragstart="arrastrando(event)" src="imagenes/240z.png"></td>
+                <td><img id="draggable-12" class="imagen3" draggable="true" ondragstart="arrastrando(event)" src="imagenes/mr2.png"></td>
+                <td><img id="draggable-10" class="imagen3" draggable="true" ondragstart="arrastrando(event)" src="imagenes/eclipse.png"></td>
+            </tr>
+        </table>
+    </div>
+    <div id="contenedorTexto">
+        <table>
+            <tr>
+            <td><div class="dropzone" id="destino9" ondragover="recibiendo(event)" ondrop="soltar(event)">3000GT</div></td>
+            <td><div class="dropzone" id="destino10" ondragover="recibiendo(event)" ondrop="soltar(event)">Eclipse</div></td>
+            <td><div class="dropzone" id="destino11" ondragover="recibiendo(event)" ondrop="soltar(event)">240Z</div></td>
+            <td><div class="dropzone" id="destino12" ondragover="recibiendo(event)" ondrop="soltar(event)">MR2</div></td>
+            </tr>
+        </table>
+    </div>
+    <button class="btns" id="boton3">Comprobar</button>
+</div>
+<div id="ganar">
+    <h1>WINNER</h1>
+</div>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/miscript.js"></script>
+</body>
+</html>
