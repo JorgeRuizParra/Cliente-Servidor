@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tres en raya</title>
+    <link href='css/bootstrap.min.css' rel="stylesheet">
+    <link href='css/tres.css' rel="stylesheet">
+    <script src='js/bootstrap.bundle.min.js'></script>
+    <script src='js/ter.js'></script>
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script> 
+	<style>
+		.btns-a-r{
+			display: none;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="row">
+		<div class="col-3 mt-3">
+			<button class="btn btn-secondary" onclick="reiniciar()">Reiniciar</button>
+			<button class="btn btn-primary btns-a-r" onclick="avanzar()">Avanzar</button>
+			<button class="btn btn-primary btns-a-r" onclick="retroceder()">Retroceder</button>
+		</div>
+		<div class="col-6 text-center">
+			<h1 class="display-1">Tres en raya</h1>
+		</div>
+		<div class="col-3">
+		</div>
+	</div>
+	<!--tablero de juego-->
+	<div class="row">
+		<div class="col-3">
+		</div>
+		<div class="col-6">
+			<div class="row justify-content-around mt-3">
+				<div class="col-auto">
+					<button class="boton btn btn-secondary" id="btn0" onclick="jugar(this,0)"></button>
+				</div>
+				<div class="col-auto">
+					<button class="boton btn btn-secondary" id="btn1" onclick="jugar(this,1)"></button>
+				</div>
+				<div class="col-auto">
+					<button class="boton btn btn-secondary" id="btn2" onclick="jugar(this,2)"></button>
+				</div>
+			</div>
+			<div class="row justify-content-around mt-3">
+				<div class="col-auto">
+					<button class="boton btn btn-secondary" id="btn3" onclick="jugar(this,3)"></button>
+				</div>
+				<div class="col-auto">
+					<button class="boton btn btn-secondary" id="btn4" onclick="jugar(this,4)"></button>
+				</div>
+				<div class="col-auto">
+					<button class="boton btn btn-secondary" id="btn5" onclick="jugar(this,5)"></button>
+				</div>
+			</div>
+			<div class="row justify-content-around mt-3">
+				<div class="col-auto">
+					<button class="boton btn btn-secondary" id="btn6" onclick="jugar(this,6)"></button>
+				</div>
+				<div class="col-auto">
+					<button class="boton btn btn-secondary" id="btn7" onclick="jugar(this,7)"></button>
+				</div>
+				<div class="col-auto">
+					<button class="boton btn btn-secondary" id="btn8" onclick="jugar(this,8)"></button>
+				</div>
+			</div>
+		</div>
+		<div class="col-3">
+			<p class="display-1" id="salida"></p>
+		</div>
+	</div>
+</body>
+</html>

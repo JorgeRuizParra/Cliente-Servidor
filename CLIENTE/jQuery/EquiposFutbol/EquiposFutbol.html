@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipos Futbol</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+	<script type="text/javascript" src="js/EquiposFutbol.js"></script>
+    <style>
+        h2{
+            background-color: brown;
+            width: 10%;
+            padding: 10px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Equipos de Futbol</h1>
+    <form method="get" action="equipos.py">
+        <select name="select" id="equipos">
+
+        </select>
+        <button type="button" onclick="pedirDatos()">Ver Datos</button>
+    </form>
+    <div id="datosequipo"></div>
+</body>
+</html>

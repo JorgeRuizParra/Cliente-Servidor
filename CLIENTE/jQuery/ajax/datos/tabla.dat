@@ -1,0 +1,18 @@
+<table id="t1" class="tabla">
+        <tr>
+            <td>A</td>
+            <td>B</td>
+        </tr>
+</table>
+<table id="t2" class="tabla">
+        <tr>
+            <td>C</td>
+            <td>D</td>
+        </tr>
+</table>
+<table id="t3" class="tabla2">
+        <tr>
+            <td>E</td>
+            <td>F</td>
+        </tr>
+</table>
