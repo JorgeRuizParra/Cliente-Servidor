@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de entrada</title>
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="js/registros.js"></script>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        table,th,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+
+        .btnRegSal{
+            background-color: rgb(248, 82, 82);
+            color: white   ;
+            border: 0;
+            border-radius: 10px;
+            padding: 5px;
+            margin: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Control de Visitas</h1>
+    <form>
+        Nombre:<br>
+        <input type="text" name="nombre" id="nombre"><br>
+        Apellidos:<br>
+        <input type="text" name="apellidos" id="apellidos"><br>
+        DNI:<br>
+        <input type="text" name="dni" id="dni"><br>
+        Persona de Contacto:<br>
+        <input type="text" name="contacto" id="contacto"><br><br>
+        <input type="button" value="Registrar" onclick="guardaBD()">
+        <input type="button" value="Limpiar" onclick="limpiar()">
+    </form>
+    <h1>Listado de Entradas</h1>
+        <p>Buscar por DNI: <input type="text" name="dniEnt" id="dniEnt"><input type="button" value="🔍" onclick="filtros('dniEnt',2,'entradas')"></p>
+        <p>Buscar por Apellidos: <input type="text" name="apeEnt" id="apeEnt"><input type="button" value="🔍" onclick="filtros('apeEnt',1,'entradas')"></p>
+        <table id="entradas">
+            <tr><th>Nombre</th><th>Apellidos</th><th>DNI</th><th>Contacto</th><th>Fecha Entrada</th><th></th></tr>
+        </table>
+    <h1>Listado de Salidas</h1>
+        <p>Buscar por DNI: <input type="text" name="dniSal" id="dniSal"><input type="button" value="🔍" onclick="filtros('dniSal',2,'salidas')"></p>
+        <p>Buscar por Apellidos: <input type="text" name="apeSal" id="apeSal"><input type="button" value="🔍" onclick="filtros('apeSal',1,'salidas')"></p>
+        <table id="salidas">
+            <tr><th>Nombre</th><th>Apellidos</th><th>DNI</th><th>Contacto</th><th>Fecha Entrada</th><th>Fecha Salida</th></tr>
+        </table>
+</body>
+</html>
