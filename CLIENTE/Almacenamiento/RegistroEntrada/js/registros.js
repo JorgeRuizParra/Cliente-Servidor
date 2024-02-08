@@ -34,14 +34,17 @@ function inicio(){
 
 function guardaBD(){
   console.log("guardar en el almacen de objetos")
+  if ($("#dni").val() == "" || $("#nombre").val() == "" || $("#apellidos").val() == "" || $("#contacto").val() == ""){
+    return alert("Debes rellenar todos los campos");
+  }
   
   //recuperar los datos
   //generar un objeto para guardar
   entrada = {
-    dni: document.getElementById("dni").value,
-    nombre: document.getElementById("nombre").value,
-    apellidos: document.getElementById("apellidos").value,
-    contacto: document.getElementById("contacto").value,
+    dni: $("#dni").val(),
+    nombre: $("#nombre").val(),
+    apellidos: $("#apellidos").val(),
+    contacto: $("#contacto").val(),
     fechaEntrada: new(Date),
   }
 
@@ -113,10 +116,8 @@ function listarEntradas(){
 
             fila.append(celdaFechEntr);
 
-            celdaSal = $("<td>")
+            celdaSal = $("<td id='campo"+nFila+"'>")
             console.log(entrada.dni)
-
-            
 
             let btnRegSalida = $("<button onclick='mover("+"\""+nombre+"\",\""+apellidos+"\",\""+dni+"\",\""+contacto+"\",\""+fechaEntrada+"\","+nFila+")'>")
             btnRegSalida.addClass("btnRegSal")
@@ -300,7 +301,12 @@ function limpiar(){
 }
 
 function moverFila(nFila){
+  let fechaSalida = new(Date);
+
   let filaAmover = $("#fila"+nFila);
 
   $("#salidas").append(filaAmover)
+
+  let campoMover = $("#campo"+nFila);
+  campoMover.text(fechaSalida);
 }
